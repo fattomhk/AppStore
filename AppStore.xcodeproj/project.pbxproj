@@ -186,7 +186,6 @@
 				TargetAttributes = {
 					C0BDC1FE1E5C2C3200BD5FE3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = NSG4RTN85L;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -409,9 +408,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91524272568890F23C450149 /* Pods-AppStore.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NSG4RTN85L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ninja.mocha.AppStore;
@@ -424,9 +423,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8612FB39AE55E4A8EB9BAE9E /* Pods-AppStore.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = NSG4RTN85L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ninja.mocha.AppStore;

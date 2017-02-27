@@ -13,5 +13,5 @@ target 'AppStore' do
     pod 'Kingfisher', '~> 3.0'
     pod 'Cosmos', '~> 8.0'
     pod 'MXParallaxHeader', '~> 0.6'
-    pod 'APESuperHUD', :git => 'https://github.com/apegroup/APESuperHUD.git'
+    pod 'APESuperHUD', '~> 1.1'
 end

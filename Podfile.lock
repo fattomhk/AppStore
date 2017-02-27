@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - APESuperHUD (1.1.2)
   - Cosmos (8.0.2)
   - JustJson (0.1.3)
@@ -11,7 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
-  - APESuperHUD (from `https://github.com/apegroup/APESuperHUD.git`)
+  - APESuperHUD (~> 1.1)
   - Cosmos (~> 8.0)
   - JustJson (= 0.1.3)
   - Kingfisher (~> 3.0)
@@ -19,17 +19,8 @@ DEPENDENCIES:
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
 
-EXTERNAL SOURCES:
-  APESuperHUD:
-    :git: https://github.com/apegroup/APESuperHUD.git
-
-CHECKOUT OPTIONS:
-  APESuperHUD:
-    :commit: c93268c65dc888f9140eb7a5ed9dd987c55d6fdf
-    :git: https://github.com/apegroup/APESuperHUD.git
-
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   APESuperHUD: 9c7ea17cea21b4a9212f1c43810b0c8b9ee585a6
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
   JustJson: ca3825f07b074abfc4dc52c7992b7bbcf6fac74c
@@ -38,6 +29,6 @@ SPEC CHECKSUMS:
   RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
   RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
 
-PODFILE CHECKSUM: 2f37ce9c5fa786066c8e2038e9972c0289c057f1
+PODFILE CHECKSUM: 78f89fb297ec3e69776d4c9dc0342fcbb49c1297
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

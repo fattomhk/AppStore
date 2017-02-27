@@ -56,13 +56,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A7-mh-XV1">
-                                                    <rect key="frame" x="133" y="29" width="31" height="14.5"/>
+                                                    <rect key="frame" x="133" y="29" width="31" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqM-Ee-0ql" customClass="CosmosView" customModule="Cosmos">
-                                                    <rect key="frame" x="133" y="48" width="50" height="11"/>
+                                                    <rect key="frame" x="133" y="49" width="50" height="11"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="11" id="tKh-JQ-yOE"/>
