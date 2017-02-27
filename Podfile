@@ -15,4 +15,3 @@ target 'AppStore' do
     pod 'MXParallaxHeader', '~> 0.6'
     pod 'APESuperHUD', :git => 'https://github.com/apegroup/APESuperHUD.git'
 end
-®
