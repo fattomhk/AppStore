@@ -409,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91524272568890F23C450149 /* Pods-AppStore.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NSG4RTN85L;
 				INFOPLIST_FILE = AppStore/Info.plist;
@@ -423,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8612FB39AE55E4A8EB9BAE9E /* Pods-AppStore.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NSG4RTN85L;
 				INFOPLIST_FILE = AppStore/Info.plist;

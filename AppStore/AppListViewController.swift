@@ -100,7 +100,7 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
 
             if diff > 0 {
                 var paths = [IndexPath]()
-                for var idx in oldDataNum ..< newDataNum {
+                for idx in oldDataNum ..< newDataNum {
                     let indexPath = IndexPath(row: idx, section: 0)
                     paths.append(indexPath)
                 }
