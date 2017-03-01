@@ -56,7 +56,6 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
             tableView.parallaxHeader.view = vc.view
             tableView.parallaxHeader.height = vc.view.bounds.height
             tableView.parallaxHeader.mode = .fill
-            
         }
         
         viewModel.errorMsg.asObservable().subscribe(onNext: { (errorMsg) in
@@ -66,10 +65,10 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
         }).addDisposableTo(disposeBag)
         
         viewModel.searchQuery.asObservable()
-            .subscribe(onNext: {[weak self] (query) in
-                self?.viewModel.search(by: query)
-            })
-            .addDisposableTo(disposeBag)
+        .subscribe(onNext: {[weak self] (query) in
+            self?.viewModel.search(by: query)
+        })
+        .addDisposableTo(disposeBag)
     }
     
     static func shouldLoadMore(contentOffset: CGPoint,  tableView: UITableView) -> Bool {
@@ -148,17 +147,23 @@ extension AppListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppListCell") as! AppListCell
         let row = indexPath.row
         let element = viewModel.appList.value[row]
-        cell.lblIndex.text = String(row + 1)
+        cell.lblIndex.text = String(element.rank ?? row + 1)
         cell.lblTitle.text = element.name
         cell.lblCategory.text = element.category
         cell.ivIcon.layer.masksToBounds = true
-        cell.ratingView.settings.updateOnTouch = false
-        cell.ratingView.settings.fillMode = .half
-        cell.ratingView.rating = Double(element.rating)
-        cell.ratingView.text = "(\(element.ratingCount))"
+        if element.ratingCount > 0 {
+            cell.ratingView.isHidden = false
+            cell.ratingView.settings.updateOnTouch = false
+            cell.ratingView.settings.fillMode = .half
+            cell.ratingView.rating = Double(element.rating)
+            cell.ratingView.text = "(\(element.ratingCount))"
+        } else {
+            cell.ratingView.isHidden = true
+        }
         if let imageURL = element.imageURL, let url = URL(string: imageURL) {
-            let image = UIImage(named: "default_profile_icon")
-            cell.ivIcon.kf.setImage(with: url, placeholder: image)
+            cell.ivIcon.image = nil
+            cell.ivIcon.kf.setImage(with: nil)
+            cell.ivIcon.kf.setImage(with: url)
         }
         if row % 2 == 0 {
             cell.ivIcon.layer.cornerRadius = 10

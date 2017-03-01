@@ -19,6 +19,7 @@ class AppListStore {
     var searchQuery: Variable<String> = Variable(String())
     var originList: [AppDetail] = [AppDetail]()
     var errorMsg: Variable<String> = Variable(String())
+    var appRank = [String]()
     
     var shouldShowLoading: Bool = false {
         didSet {
@@ -46,11 +47,14 @@ class AppListStore {
 
         return Observable.create({ (observer) -> Disposable in
             Alamofire.request(Constants.API.URL.listing)
-                .responseString(completionHandler: { (response) in
+                .responseString(completionHandler: {[weak self] (response) in
                     switch response.result {
                     case .success:
                         if let json = response.result.value?.toDictionary(),
                             let apps = App.from(json[arrayValue: "feed.entry"]) {
+                            self?.appRank = apps.map({ (app) -> String in
+                                return app.id
+                            })
                             observer.onNext(apps)
                         }
                         observer.onCompleted()
@@ -98,7 +102,12 @@ class AppListStore {
         }
         .toArray()
         .subscribe(onNext: {[weak self] (results: [AppDetail]) in
-            self?.appPool = results
+            self?.appPool = self?.appRank.enumerated().map({ (index, appId) -> AppDetail in
+                let detail = results.filter{return $0.id == appId}.first
+                detail?.rank = index + 1
+                return detail!
+            }) ?? []
+            
             if results.count >= Constants.API.pageSize {
                 self?.appList.value = Array(results[0...Constants.API.pageSize-1])
             } else if results.count > 0 {
@@ -112,7 +121,7 @@ class AppListStore {
         .addDisposableTo(disposeBag)
     }
     
-    func loadMore() {
+    func loadMore(reload: Bool = false) {
         guard appPool.count > appList.value.count else {
             return
         }
@@ -121,7 +130,7 @@ class AppListStore {
             return
         }
         
-        let startIdx = appList.value.count
+        let startIdx = reload ? 0 : appList.value.count
         var endIdx = startIdx + Constants.API.pageSize - 1
         if endIdx > appPool.count - 1 {
             endIdx = appPool.count - 1
@@ -133,11 +142,10 @@ class AppListStore {
     
     func search(by query: String) {
         if query.isEmpty {
-            self.appList.value = []
-            loadMore()
-        }
-        
-        if query.isEmpty == false {
+            appList.value = []
+            loadMore(reload: true)
+        } else {
+            appList.value = []
             self.appList.value = self.appPool.filter({ (appDetail) -> Bool in
                 return appDetail.search(by: query)
             })

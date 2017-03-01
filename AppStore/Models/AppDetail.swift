@@ -24,10 +24,10 @@ class AppDetail: JJMappable{
     var rating: Double = 0
     var ratingCount: Int = 0
     var author: String
+    var rank: Int?
     
     required init(map: JJMapper) {
-        
-        id = map[string: "trackId"] ?? ""
+        id = String(map[intValue: "trackId"])
         bundleId = map[string: "bundleId"] ?? ""
         name = map[string: "trackName"] ?? ""
         summary = map[string: "description"] ?? ""
@@ -49,6 +49,30 @@ class AppDetail: JJMappable{
             self.imageURL = imgURL
         }
     }
+    
+//    init(id _id: String,
+//         bundleId _bundleId: String,
+//         name _name: String,
+//         summary _summary: String,
+//         price _price: Float,
+//         currency _currency: String,
+//         priceLabel _priceLabel: String,
+//         link _link: String,
+//         category _category: String,
+//         author _author: String) {
+//        self.id = _id
+//        self.bundleId = _bundleId
+//        self.name = _name
+//        self.summary = _summary
+//        self.price = _price
+//        self.currency = _currency
+//        self.priceLabel = _priceLabel
+//        self.link = _link
+//        self.category = _category
+//        self.author = _author
+//        self.rating = 0
+//        self.ratingCount = 0
+//    }
     
     func search(by query: String) -> Bool {
         guard query.isEmpty == false else {
