@@ -7,7 +7,7 @@ target 'AppStore' do
 
   # Pods for AppStore
     pod 'Alamofire', '~> 4.3'
-    pod 'JustJson', '0.1.3'
+    pod 'JustJson', '~> 0.1'
     pod 'RxSwift', '~> 3.0'
     pod 'RxCocoa', '~> 3.0'
     pod 'Kingfisher', '~> 3.0'

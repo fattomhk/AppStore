@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.4.0)
   - APESuperHUD (1.1.2)
   - Cosmos (8.0.2)
-  - JustJson (0.1.3)
+  - JustJson (0.1.4)
   - Kingfisher (3.5.0)
   - MXParallaxHeader (0.6.0)
   - RxCocoa (3.2.0):
@@ -13,7 +13,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.3)
   - APESuperHUD (~> 1.1)
   - Cosmos (~> 8.0)
-  - JustJson (= 0.1.3)
+  - JustJson (~> 0.1)
   - Kingfisher (~> 3.0)
   - MXParallaxHeader (~> 0.6)
   - RxCocoa (~> 3.0)
@@ -23,12 +23,12 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   APESuperHUD: 9c7ea17cea21b4a9212f1c43810b0c8b9ee585a6
   Cosmos: 007c0b8e33a85e5363911bdd933571bbe221f7ef
-  JustJson: ca3825f07b074abfc4dc52c7992b7bbcf6fac74c
+  JustJson: d66ff58af401f5c22b84fe5c658fdbf815a7a45f
   Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   MXParallaxHeader: 2997592b8349baf8557ae0e4346f6b17e141de39
   RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
   RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
 
-PODFILE CHECKSUM: 78f89fb297ec3e69776d4c9dc0342fcbb49c1297
+PODFILE CHECKSUM: 0a89a5a282a70c2f62a6a0acfc91154090ee0159
 
 COCOAPODS: 1.2.0

@@ -64,6 +64,12 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
                 
             }
         }).addDisposableTo(disposeBag)
+        
+        viewModel.searchQuery.asObservable()
+            .subscribe(onNext: {[weak self] (query) in
+                self?.viewModel.search(by: query)
+            })
+            .addDisposableTo(disposeBag)
     }
     
     static func shouldLoadMore(contentOffset: CGPoint,  tableView: UITableView) -> Bool {
@@ -76,14 +82,7 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
     
     func search(query: String) {
         viewModel.searchQuery.value = query
-        
-        viewModel.searchQuery.asObservable()
-        .subscribe(onNext: {[weak self] (query) in
-            self?.viewModel.search(by: query)
-        })
-        .addDisposableTo(disposeBag)
-        
-        
+ 
         if let vc = self.childViewControllers.first as? AppRecommendationListViewController {
             vc.viewModel.searchQuery.value = query
         }
@@ -96,18 +95,18 @@ class AppListViewController: UIViewController, Alertable, UITableViewDelegate {
             let newDataNum = self?.viewModel.appList.value.count ?? 0
             let oldDataNum = self?.loadedAppDetailCount ?? 0
             let diff = newDataNum - oldDataNum
-            self?.tableView.beginUpdates()
-
             if diff > 0 {
+                self?.tableView.beginUpdates()
                 var paths = [IndexPath]()
                 for idx in oldDataNum ..< newDataNum {
                     let indexPath = IndexPath(row: idx, section: 0)
                     paths.append(indexPath)
                 }
                 self?.tableView.insertRows(at: paths, with: .automatic)
-
+                self?.tableView.endUpdates()
+            } else {
+                self?.tableView.reloadData()
             }
-            self?.tableView.endUpdates()
             self?.loadedAppDetailCount = newDataNum
         })
         .addDisposableTo(disposeBag)
